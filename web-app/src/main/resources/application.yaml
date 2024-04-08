@@ -1,0 +1,84 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: bddSampleSrv
+
+  datasource:
+    bddSample-ent-ds:
+      url: jdbc:oracle:thin:@localhost:1521/xe
+      username: BDD_SAMPLE
+      password: 123456
+      driverClassName: oracle.jdbc.OracleDriver
+#      org.postgresql.Driver
+#      "jdbc:postgresql://172.16.20.40:5432/civil"
+      hikari:
+        minimum-idle: 6
+        maximum-idle: 15
+        maximum-pool-size: 20
+        idle-timeout: 30000
+        max-lifetime: 230000
+        connection-timeout: 80000
+        pool-name: bddSampleHikariPool
+
+#      "jdbc:postgresql://localhost:5432/civil"
+    bddSample-desk-ds:
+      url: jdbc:oracle:thin:@localhost:1521/xe
+      driver-class-name: oracle.jdbc.OracleDriver
+      username: BDD_SAMPLE
+      password: 123456
+      hikari:
+        minimum-idle: 6
+        maximum-idle: 15
+        maximum-pool-size: 20
+        idle-timeout: 30000
+        max-lifetime: 230000
+        connection-timeout: 80000
+        pool-name: bddSampleHikariPool
+
+  jpa:
+    show-sql: true
+    database: oracle
+#    database: postgresql
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+#      org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        default_schema: BDD_SAMPLE
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+#          default_schema: Test
+
+#security:
+#  oauth2:
+#    resource:
+#      token-info-uri: http://auth-server:7000/oauth/check_token
+##      token-type: bearer
+#    client:
+#      client-id: 442cf4015509eda9c03e5ca3aceef752
+#      client-secret: 4f7ec648a48b9d3fa239b497f7b6b4d8019697bd
+#      access-token-uri: http://auth-server:7000/oauth/token
+
+#
+#logging:
+#  level:
+#    root: ERROR
+
+BDDSample:
+  # Desktop | SmallCo | MediumCo | Enterprise | Cloud
+  Edition: Enterprise
+  # None | Redis
+  CachMecanism: None
+  CacheHost: 127.0.0.1
+  CachePort: 6379
+
+
+
+
+

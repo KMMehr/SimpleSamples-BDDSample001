@@ -1,0 +1,7 @@
+/.idea/
+/.mvn/
+/logs/
+/rest-service/.mvn/
+/rest-service/.mvn/
+/rest-service/target/
+/web-app/target/
